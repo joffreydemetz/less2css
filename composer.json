@@ -1,0 +1,43 @@
+{
+    "name": "jdz/less2css",
+    "type": "library",
+    "description": "Parse/Compress Less to CSS",
+    "keywords": ["less", "css", "php", "stylesheet", "less.js", "lesscss"],
+    "homepage": "http://joffreydemetz.com/git/less2css/",
+    "version": "1.0.0",
+    "license": "MIT",
+    
+    "authors": [
+        {
+            "name": "Joffrey Demetz",
+            "email": "joffrey.demetz@gmail.com",
+            "homepage": "http://joffreydemetz.com",
+            "role": "Lead"
+        }
+    ],
+    
+    "require": {
+        "php": ">=5.6"
+    },
+    
+    "suggest": {
+        "mishal/iless": "Needed to support the ILess parser ^2.2",
+        "oyejorge/less.php": "Needed to support the LessC parser 1.7.0",
+        "websharks/css-minifier": "Needed to support the WebSharks minifier 150820"
+    },
+    
+    "conflict": {
+        "mishal/iless": "<2.2 >2.3",
+        "oyejorge/less.php": "<1.7.0 >1.7.0",
+        "websharks/css-minifier": "<150820 >150820"
+    },
+    
+    "autoload": {
+        "psr-4": {
+            "JDZ\\Less2Css\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
+}
