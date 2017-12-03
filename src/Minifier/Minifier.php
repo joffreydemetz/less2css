@@ -41,7 +41,7 @@ abstract class Minifier implements MinifierInterface
    * @param   string  $name   The minifier implementation name
    * @param   string  $css    The raw CSS content
    * @param   bool    $reset  Force a new instance
-   * @return 	MinifierInterface  The minifier instance
+   * @return   MinifierInterface  The minifier instance
    */
   public static function getInstance($name, $css, $reset=true)
   {

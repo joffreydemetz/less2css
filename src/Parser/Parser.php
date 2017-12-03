@@ -46,7 +46,7 @@ abstract class Parser implements ParserInterface
    * 
    * @param   string  $name     The parser implementation name
    * @param   bool    $reset    Build a new instance
-   * @return 	ParserInterface   The parser instance
+   * @return   ParserInterface   The parser instance
    */
   public static function getInstance($name, $reset=false)
   {

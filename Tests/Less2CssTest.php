@@ -10,7 +10,8 @@ namespace JDZ\Less2Css;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @author Joffrey Demetz <joffrey.demetz@gmail.com>
+ * @package Test
+ * @author  Joffrey Demetz <joffrey.demetz@gmail.com>
  */
 class Less2CssTest extends TestCase
 {
