@@ -39,23 +39,27 @@ abstract class Parser implements ParserInterface
    *
    * @var  Parser
    */
-  protected static $instance; 
+  protected static $instances; 
   
   /** 
    * Get a seeker instance
    * 
-   * @param   string  $name     The parser implementation name
-   * @param   bool    $reset    Build a new instance
-   * @return   ParserInterface   The parser instance
+   * @param   string  $name     The instance name
+   * @param   string  $type     The parser implementation name
+   * @return  ParserInterface   The parser instance
    */
-  public static function getInstance($name, $reset=false)
+  public static function getInstance($name, $type)
   {
-    if ( !isset(self::$instance) || $reset === true ){
-      $Class = __NAMESPACE__ . '\\'.ucfirst($name).'Parser';
-      self::$instance = new $Class();
+    if ( !isset(self::$instances) ){
+      self::$instances = [];
     }
     
-    return self::$instance;
+    if ( !isset(self::$instances[$name]) ){
+      $Class = __NAMESPACE__ . '\\'.ucfirst($type).'Parser';
+      self::$instances[$name] = new $Class();
+    }
+    
+    return self::$instances[$name];
   }
   
   /** 

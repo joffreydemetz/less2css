@@ -25,7 +25,7 @@ class SimpleMinifier extends Minifier
     $css = $this->cleanSecondPass($css);
     
     // Add space after :not(...)
-    $css = preg_replace("/:not\(([^\)]+)\)([^\s])/", ":not($1) $2", $css);
+    $css = preg_replace("/:not\(([^\)]+)\)([^\s:])/", ":not($1) $2", $css);
     
     return $css;
   }
@@ -72,8 +72,8 @@ class SimpleMinifier extends Minifier
     }, $str);
     
     // Uppercase hex colors
-    $str = preg_replace_callback("/#([a-f0-9]{3,6})/i", function($m){
-      return '#'.strtoupper($m[1]);
+    $str = preg_replace_callback("/#([a-f0-9]{3,6})([\);])/i", function($m){
+      return '#'.strtoupper($m[1]).$m[2];
     }, $str);
     
     return $str;
@@ -94,7 +94,7 @@ class SimpleMinifier extends Minifier
     $str = preg_replace("/;(?=\s*})/", "$1", $str);
     // Remove space after , : ; { } ( ) > ~ +
     $str = preg_replace("/([,:;\{\}\(\)>]) /", "$1", $str);
-    // Remove space before , ; { } ( ) > ~ +
+    // Remove space before , : ; { } ( ) > ~ +
     $str = preg_replace("/ ([,:;\{\}\(\)>])/", "$1", $str);
     
     $str = trim($str);
