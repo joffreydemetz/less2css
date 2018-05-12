@@ -3,22 +3,18 @@
     "type": "library",
     "description": "Parse/Compress Less to CSS",
     "keywords": ["less", "css", "php", "stylesheet", "less.js", "lesscss"],
-    "homepage": "http://joffreydemetz.com/git/less2css/",
-    "version": "1.2.0",
+    "homepage": "https://github.com/joffreydemetz/less2css/",
+    "version": "1.2.1",
     "license": "MIT",
     
     "authors": [
         {
             "name": "Joffrey Demetz",
             "email": "joffrey.demetz@gmail.com",
-            "homepage": "http://joffreydemetz.com",
+            "homepage": "https://joffreydemetz.com",
             "role": "Lead"
         }
     ],
-    
-    "require": {
-        "php": ">=5.6"
-    },
     
     "suggest": {
         "mishal/iless": "Needed to support the ILess parser ^2.2",
