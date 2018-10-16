@@ -21,11 +21,15 @@ class SimpleMinifier extends Minifier
   {
     $css = $this->css;
     
+    $css = str_replace('€', '--EURO--', $css);
+    
     $css = $this->cleanFirstPass($css);
     $css = $this->cleanSecondPass($css);
     
     // Add space after :not(...)
     $css = preg_replace("/:not\(([^\)]+)\)([^\s:])/", ":not($1) $2", $css);
+    
+    $css = str_replace('--EURO--', '€', $css);
     
     return $css;
   }

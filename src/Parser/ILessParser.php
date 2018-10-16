@@ -7,6 +7,10 @@
  */
 namespace JDZ\Less2Css\Parser;
 
+use ILess\Exception\CompilerException;
+use ILess\Exception\ParserException;
+use RuntimeException;
+
 /**
  * ILess parser
  * 
@@ -19,7 +23,16 @@ class ILessParser extends Parser
    */
   public function getCss($str='')
   {
-    return $this->parser->getCSS();
+    try {
+      $css = $this->parser->getCSS();
+    }
+    catch(CompilerException $e){
+      throw new RuntimeException(
+        'Compiler error in '.$e->getCurrentFile()->filename."\n".' on index '.$e->getIndex()."\n".' -- '.$e->getMessage()
+      );
+    }
+    
+    return $css;
   }
   
   /** 
@@ -27,7 +40,14 @@ class ILessParser extends Parser
    */
   public function parseFile($path)
   {
-    $this->parser->parseFile($path);
+    try {
+      $this->parser->parseFile($path);
+    }
+    catch(ParserException $e){
+      throw new RuntimeException(
+        'Parser error in '.$e->getCurrentFile()->filename."\n".' on index '.$e->getIndex()."\n".' -- '.$e->getMessage()
+      );
+    }
   }
   
   /** 
