@@ -14,17 +14,11 @@ namespace JDZ\Less2Css\Minifier;
  */
 class WebsharksMinifier extends Minifier
 {
-  /** 
-   * {@inheritDoc}
-   */
   public function compressCss()
   {
     return $this->minifier->min();
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   protected function setMinifier()
   {
     $this->minifier = new \WebSharks\CssMinifier\Core($this->css);

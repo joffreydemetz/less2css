@@ -14,9 +14,6 @@ namespace JDZ\Less2Css\Minifier;
  */
 class SimpleMinifier extends Minifier
 {
-  /** 
-   * {@inheritDoc}
-   */
   public function compressCss()
   {
     $css = $this->css;
@@ -34,9 +31,6 @@ class SimpleMinifier extends Minifier
     return $css;
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   protected function setMinifier()
   {    
     $this->minifier = null;
