@@ -25,7 +25,8 @@ class SimpleMinifier extends Minifier
     
     // Add space after :not(...)
     $css = preg_replace("/:not\(([^\)]+)\)([^\s:])/", ":not($1) $2", $css);
-    
+    $css = preg_replace("/:nth-(child|of-type)\(([^\)]+)\)([^\s:])/", ":nth-$1($2) $3", $css);
+    $css = preg_replace("/\)\s*and\s*\(/", ") and (", $css);
     $css = str_replace('--EURO--', '€', $css);
     
     return $css;
@@ -86,7 +87,7 @@ class SimpleMinifier extends Minifier
   protected function cleanSecondPass($str)
   {
     // Normalize whitespace
-    $str = preg_replace("/\s+/", " ", $str);
+    $str = preg_replace("/\s\s+/", " ", $str);
     
     // Remove ; before }
     $str = preg_replace("/;(?=\s*})/", "$1", $str);
