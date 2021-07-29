@@ -74,6 +74,11 @@ abstract class Parser implements ParserInterface
     $this->setParser();
   }
   
+  public function setAutoprefixer(string $binPath, array $browserList=[ 'defaults' ])
+  {
+    return $this;
+  }
+  
   /** 
    * {@inheritDoc}
    */

@@ -7,9 +7,9 @@
  */
 namespace JDZ\Less2Css\Parser;
 
+// use JDZ\Less2Css\Autoprefixer\ILessAutoprefixerPlugin;
 use ILess\Exception\CompilerException;
 use ILess\Exception\ParserException;
-use RuntimeException;
 
 /**
  * ILess parser
@@ -18,16 +18,25 @@ use RuntimeException;
  */
 class ILessParser extends Parser 
 {
-  /** 
-   * {@inheritDoc}
-   */
+  /* public function setAutoprefixer(string $binPath, array $browserList=[ 'defaults' ])
+  {
+    $this->parser->getPluginManager()->addPlugin(new ILessAutoprefixerPlugin([
+        // see https://github.com/ai/browserslist
+        'postcss_bin' => $binPath,
+        // 'postcss_bin' => 'postcss',
+        'browsers' => $browserList
+    ]));
+    
+    return $this;
+  } */
+  
   public function getCss($str='')
   {
     try {
       $css = $this->parser->getCSS();
     }
     catch(CompilerException $e){
-      throw new RuntimeException(
+      throw new \RuntimeException(
         'Compiler error in '.$e->getCurrentFile()->filename."\n".' on index '.$e->getIndex()."\n".' -- '.$e->getMessage()
       );
     }
@@ -35,40 +44,32 @@ class ILessParser extends Parser
     return $css;
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   public function parseFile($path)
   {
     try {
       $this->parser->parseFile($path);
     }
     catch(ParserException $e){
-      throw new RuntimeException(
+      throw new \RuntimeException(
         'Parser error in '.$e->getCurrentFile()->filename."\n".' on index '.$e->getIndex()."\n".' -- '.$e->getMessage()
       );
     }
+    
+    return $this;
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   public function parseString($str)
   {
     $this->parser->parseString($str);
+    
+    return $this;
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   public function addVariables(array $variables)
   {
     $this->parser->addVariables($variables);
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   protected function setParser()
   {
     $this->parser = new \ILess\Parser();  

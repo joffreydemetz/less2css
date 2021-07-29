@@ -14,50 +14,35 @@ namespace JDZ\Less2Css\Parser;
  */
 class LesscParser extends Parser 
 {
-  /** 
-   * {@inheritDoc}
-   */
-  // protected $compress = true;
-  
-  /** 
-   * {@inheritDoc}
-   */
   public function getCss()
   {
     return $this->parser->getCSS();
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   public function parseFile($path)
   {
     $this->parser->parseFile($path);
+    return $this;
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   public function parseString($str)
   {
     $this->parser->parse($str);
+    return $this;
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   public function addVariables(array $variables)
   {
     $this->parser->ModifyVars($variables);
+    return $this;
   }
   
-  /** 
-   * {@inheritDoc}
-   */
   protected function setParser()
   {
     $this->parser = new \Less_Parser([
       'compress' => $this->compress,
     ]);
+    
+    return $this;
   }
 }
