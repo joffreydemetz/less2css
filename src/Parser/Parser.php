@@ -7,9 +7,6 @@
  */
 namespace JDZ\Less2Css\Parser;
 
-use JDZ\Filesystem\File;
-use JDZ\Filesystem\Path;
-
 /**
  * Less parser
  * 

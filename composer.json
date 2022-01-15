@@ -4,7 +4,7 @@
     "description": "Parse/Compress Less to CSS",
     "keywords": ["less", "css", "php", "stylesheet", "less.js", "lesscss"],
     "homepage": "https://github.com/joffreydemetz/less2css/",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "license": "MIT",
     
     "authors": [
@@ -15,10 +15,6 @@
             "role": "Lead"
         }
     ],
-
-    "require": {
-        "php": "^7.1.3"
-    },
     
     "suggest": {
         "mishal/iless": "Needed to support the ILess parser ^2.2",
