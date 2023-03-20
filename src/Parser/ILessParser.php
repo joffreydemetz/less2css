@@ -37,7 +37,7 @@ class ILessParser extends Parser
     }
     catch(CompilerException $e){
       throw new \RuntimeException(
-        'Compiler error in '.$e->getCurrentFile()->filename."\n".' on index '.$e->getIndex()."\n".' -- '.$e->getMessage()
+        'Compiler error in '.$e->getCurrentFile()->filename."\n".' on index '.$e->getIndex()."\n".' -- '.$e->getMessage(), $e->getCode(), $e
       );
     }
     

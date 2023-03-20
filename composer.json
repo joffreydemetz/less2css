@@ -4,7 +4,7 @@
     "description": "Parse/Compress Less to CSS",
     "keywords": ["less", "css", "php", "stylesheet", "less.js", "lesscss"],
     "homepage": "https://github.com/joffreydemetz/less2css/",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "license": "MIT",
     
     "authors": [
